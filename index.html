@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scholix</title><meta name="description" content="Find scholarships in India that match your academic profile.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#FFFFFF;--bg2:#F8FAFC;--tx:#172033;--mu:#64748B;--ac:#2563EB;--ok:#16A34A;--wa:#EAB308;--wt:#A16207;--no:#DC2626;--bd:#E2E8F0;--sh:0 1px 2px rgba(23,32,51,.05),0 6px 18px rgba(23,32,51,.05);box-sizing:border-box}
+*{box-sizing:inherit}[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:var(--ac)}h1{font-size:clamp(1.5rem,3.5vw,2.2rem);line-height:1.2;margin:.2rem 0 .6rem}h2{margin:.2rem 0 .6rem}h3{margin:.2rem 0;font-size:1.05rem}
+.mu{color:var(--mu)}.sm{font-size:.88rem}.w{width:min(100% - 2rem,1040px);margin:0 auto}
+.brand{font-weight:700;font-size:1.2rem}.brand b{color:var(--ac)}
+.lnav{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;flex-wrap:wrap}.lnav div{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.hero{padding:3.5rem 0 2.5rem;max-width:720px}.eyebrow{color:var(--ac);font-weight:600;font-size:.9rem}.hero p{color:var(--mu);font-size:1.1rem}
+section.s{padding:2rem 0;border-top:1px solid var(--bd)}
+.card{background:var(--bg);border:1px solid var(--bd);border-radius:14px;padding:1.1rem;margin:1rem 0;box-shadow:var(--sh);transition:box-shadow .2s,transform .2s}.grid .card{margin:0}
+.card:hover{box-shadow:0 2px 4px rgba(23,32,51,.06),0 10px 24px rgba(23,32,51,.08)}
+.grid{display:grid;gap:1rem;grid-template-columns:1fr;margin:1rem 0}@media(min-width:640px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}@media(min-width:960px){.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+.app{display:grid;grid-template-columns:1fr;min-height:100vh}
+aside{background:var(--bg2);border-right:1px solid var(--bd);padding:1rem;display:none}aside.open{display:block}
+aside a{display:block;padding:.5rem .8rem;border-radius:10px;color:var(--mu);text-decoration:none;font-weight:500;margin:.1rem 0}aside a:hover{background:#fff}aside a.on{background:#fff;color:var(--ac);box-shadow:var(--sh)}aside .brand{padding:.4rem .8rem 1rem}
+.mainw{padding:0 1rem 2rem;min-width:0}.mbar{padding:.8rem 0}
+@media(min-width:860px){.app{grid-template-columns:230px 1fr}aside{display:block;position:sticky;top:0;height:100vh}.mbar{display:none}.mainw{padding:1.5rem 2rem 3rem}}
+label{display:block;font-weight:600;font-size:.9rem;margin:0 0 .3rem}label.chk{font-weight:400;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:.4rem 0}
+input,select{width:100%;padding:.62rem .75rem;font:inherit;color:var(--tx);background:#fff;border:1px solid var(--bd);border-radius:10px;transition:border-color .15s,box-shadow .15s}
+input[type=checkbox]{width:auto}input:focus-visible,select:focus-visible,.b:focus-visible,.b2:focus-visible{outline:0;border-color:var(--ac);box-shadow:0 0 0 3px rgba(37,99,235,.18)}
+.er{color:var(--no);font-size:.83rem}
+.b,.b2{display:inline-block;padding:.55rem 1.1rem;font:inherit;font-weight:600;border-radius:10px;border:1px solid var(--ac);cursor:pointer;text-decoration:none;transition:background .15s}
+.b{background:var(--ac);color:#fff}.b:hover{background:#1d4ed8}.b2{background:#fff;color:var(--ac)}.b2:hover{background:#EFF6FF}
+.row{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem;align-items:center}
+.banner{background:#EFF6FF;border-radius:10px;padding:.65rem 1rem;font-size:.88rem;margin:1rem 0}
+.bar{height:8px;background:var(--bd);border-radius:9px;overflow:hidden;margin:.4rem 0 1rem}.bar i{display:block;height:100%;background:var(--ac);transition:width .25s}
+.tag{display:inline-block;font-size:.74rem;font-weight:700;padding:.12rem .6rem;border-radius:99px;border:1px solid currentColor}
+.FULL,.green{color:var(--ok)}.POTENTIAL,.amber{color:var(--wt)}.NOT,.red{color:var(--no)}.gray{color:var(--mu)}
+.dl{border-left:4px solid var(--bd)}.dl.green{border-left-color:var(--ok)}.dl.amber{border-left-color:var(--wa)}.dl.red{border-left-color:var(--no)}
+ul{margin:.3rem 0;padding-left:1.2rem}li.ok::marker{color:var(--ok)}li.ms::marker{color:var(--wa)}li.bd::marker{color:var(--no)}
+dl{display:grid;grid-template-columns:1fr;gap:.1rem 1.5rem}dt{font-size:.75rem;color:var(--mu);text-transform:uppercase;margin-top:.5rem}dd{margin:0;font-weight:600}@media(min-width:640px){dl{grid-template-columns:1fr 1fr}}
+.stat{font-size:1.9rem;font-weight:700;color:var(--ac);line-height:1.2}
+footer{border-top:1px solid var(--bd);background:var(--bg2);padding:1.5rem 0;font-size:.85rem;color:var(--mu);margin-top:2rem}
+</style></head><body>
+<div id="land"><div class="w"><div class="lnav"><span class="brand">Schol<b>ix</b></span><div><button class="b2" data-a="sc" data-t="how">How it works</button><a class="b2" href="#/results">Explore Scholarships</a><button class="b" data-a="start">Find My Scholarships</button></div></div>
+<div class="hero"><div class="eyebrow">Your Future Deserves Every Opportunity.</div><h1>Find Scholarships That Match Your Future.</h1><p>Discover scholarship opportunities that fit your education, achievements and financial background. Spend less time searching and more time building your future.</p><div class="row"><button class="b" data-a="start">Find My Scholarships</button><a class="b2" href="#/results">Explore Scholarships</a></div></div>
+<section class="s" id="features"><h2>Everything in one place</h2><div class="grid g3"><div class="card"><h3>Smart matching</h3><p class="sm mu">Your profile is checked against each scheme’s mandatory criteria.</p></div><div class="card"><h3>Clear reasons</h3><p class="sm mu">See what you satisfy, what is missing and why you may not qualify.</p></div><div class="card"><h3>Deadline alerts</h3><p class="sm mu">Green, yellow and red countdowns from the dates you confirm.</p></div><div class="card"><h3>Document checklist</h3><p class="sm mu">Know which documents are ready and which are pending.</p></div><div class="card"><h3>Reminders</h3><p class="sm mu">In-app reminders and optional browser notifications.</p></div><div class="card"><h3>Application tracker</h3><p class="sm mu">Track each scholarship from Not Started to Submitted.</p></div></div></section>
+<section class="s" id="how"><h2>How it works</h2><div class="grid g4"><div class="card"><h3>1. Add your profile</h3><p class="sm mu">Education, marks, income and category. No Aadhaar or bank details.</p></div><div class="card"><h3>2. See your matches</h3><p class="sm mu">Fully matched, potential match or not eligible, with reasons.</p></div><div class="card"><h3>3. Save and prepare</h3><p class="sm mu">Save schemes, tick documents and set reminders.</p></div><div class="card"><h3>4. Apply officially</h3><p class="sm mu">Go to the official portal. The authority makes the final decision.</p></div></div></section></div>
+<footer><div class="w">Scholix is an information tool, not an official portal. Scholarship records are unverified sample data; confirm every detail on scholarships.gov.in or the scheme’s official site.</div></footer></div>
+<div id="app" class="app" hidden><aside id="sb"></aside><div class="mainw"><div class="mbar"><button class="b2" data-a="menu">☰ Menu</button></div><main id="main"></main></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let mem=null;
+const ld=()=>{try{return JSON.parse(localStorage.getItem('sr_v1'))}catch{return mem}};
+let S=ld()||{name:'',p:{},done:false,saved:{}};
+const sv=()=>{mem=S;push();try{localStorage.setItem('sr_v1',JSON.stringify(S))}catch{}};
+const STATES=['Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana','Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur','Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana','Tripura','Uttar Pradesh','Uttarakhand','West Bengal','Andaman and Nicobar Islands','Chandigarh','Dadra and Nagar Haveli and Daman and Diu','Delhi','Jammu and Kashmir','Ladakh','Lakshadweep','Puducherry'];
+const LV=[['class10','Class 10'],['class11','Class 11'],['class12','Class 12'],['diploma','Diploma'],['ug','Undergraduate'],['pg','Postgraduate']];
+const lv=v=>(LV.find(x=>x[0]===v)||[0,v])[1];
+const HI=p=>['diploma','ug','pg'].includes(p.level),SC=p=>['class10','class11','class12'].includes(p.level);
+const CO={diploma:['Diploma in Engineering','Diploma in Pharmacy','Other'],ug:['BTech','BE','BSc','BCom','BA','BBA','BCA','MBBS','BPharm','BEd','Other'],pg:['MTech','MBA','MCA','MSc','MCom','MA','Other']};
+const YN=['No','Yes','Prefer not to say'];
+const F=[{k:'name',l:'Student name',t:'x',s:0},
+{k:'state',l:'State of study',t:'s',o:STATES,s:0},{k:'domicile',l:'Domicile state (permanent residence)',t:'s',o:STATES,s:0},{k:'district',l:'District',t:'x',s:0},
+{k:'level',l:'Education level',t:'s',o:LV,s:1},
+{k:'year',l:'Current year',t:'s',o:['1','2','3','4','5'],s:1,if:HI},
+{k:'board',l:'Board',t:'s',o:['CBSE','ICSE/CISCE','State Board','Other recognised board'],s:1,if:SC},
+{k:'stream',l:'Stream',t:'s',o:['Science','Commerce','Arts/Humanities','Vocational','Other'],s:1,if:p=>['class11','class12'].includes(p.level)},
+{k:'university',l:'University / board',t:'x',s:1,if:HI},
+{k:'course',l:'Course',t:'s',o:p=>CO[p.level]||[],s:1,if:HI},
+{k:'institution',l:'School / college name',t:'x',s:2},
+{k:'itype',l:'Institution type',t:'s',o:['Government','Government-aided','Private','Deemed university','Other'],s:2},
+{k:'marksType',l:'Marks in last completed exam',t:'s',o:[['percentage','Percentage'],['cgpa','CGPA (out of 10)'],['na','Not available yet']],s:2},
+{k:'marks',l:'Marks (percentage 0-100 or CGPA 0-10)',t:'n',s:2,if:p=>['percentage','cgpa'].includes(p.marksType)},
+{k:'income',l:'Annual family income (₹)',t:'n',s:3},
+{k:'category',l:'Category',t:'s',o:['General','OBC','SC','ST','EWS','Prefer not to say'],s:3},
+{k:'gender',l:'Gender',t:'s',o:['Female','Male','Transgender / Other','Prefer not to say'],s:3},
+{k:'minority',l:'Notified minority community? (Muslim, Christian, Sikh, Buddhist, Jain, Parsi)',t:'s',o:YN,s:3},
+{k:'disability',l:'Person with disability?',t:'s',o:YN,s:3},
+{k:'appType',l:'Application type',t:'s',o:['Fresh application','Renewal'],s:3}];
+const TT=['Location','Education','Academics','Family and category'];
+const SAMPLE='Sample data, not verified';let DB=[],MT={};
+/* extra official starting points shown in the app */
+const PORTALS=[['National Scholarship Portal','https://scholarships.gov.in/'],['MP Scholarship Portal','https://scholarshipportal.mp.nic.in/'],['AICTE','https://www.aicte-india.org/'],['UGC','https://www.ugc.gov.in/']];
+function match(p,s){return MT[s.id]||{ok:[],ms:[],bd:[],st:'POTENTIAL'}}
+const SL={FULL:'Fully matched',POTENTIAL:'Potential match',NOT:'Not eligible'};
+function dl(id){const d=(S.saved[id]||{}).deadline;if(!d)return{t:'Deadline unknown. Check the official portal.',c:'gray'};
+ const n=Math.ceil((new Date(d+'T23:59:59')-Date.now())/864e5);
+ if(n<0)return{t:'Expired ('+d+')',c:'gray'};return{t:n+' day'+(n==1?'':'s')+' left ('+d+')',c:n<=7?'red':n<=30?'amber':'green',n}}
+function fh(f){const p=S.p;let c;const v=f.k=='name'?S.name:(p[f.k]??'');
+ if(f.t=='s'){const o=typeof f.o=='function'?f.o(p):f.o;c=`<select data-k="${f.k}"><option value="">Select…</option>${o.map(x=>{const a=Array.isArray(x)?x:[x,x];return`<option value="${esc(a[0])}" ${String(v)===a[0]?'selected':''}>${esc(a[1])}</option>`}).join('')}</select>`}
+ else c=`<input data-k="${f.k}" type="${f.t=='n'?'number':'text'}" ${f.t=='n'?'min="0" step="any" inputmode="decimal"':'maxlength="100"'} value="${esc(v)}">`;
+ return`<div><label>${f.l}</label>${c}<div class="er" id="e-${f.k}"></div></div>`}
+const vis=s=>F.filter(f=>f.s===s&&(!f.if||f.if(S.p)));
+function valid(s){let ok=true;vis(s).forEach(f=>{const v=f.k=='name'?S.name:S.p[f.k];let m='';
+ if(v===undefined||v==='')m='Required';else if(f.t=='x'&&String(v).trim().length<2)m='At least 2 characters';
+ else if(f.k=='marks'){const mx=S.p.marksType=='cgpa'?10:100;if(!(v>=0&&v<=mx))m='Enter 0 to '+mx}
+ else if(f.k=='income'&&!(v>=0&&v<=1e8))m='Enter a valid amount';
+ const e=$('#e-'+f.k);if(e)e.textContent=m;if(m)ok=false});return ok}
+
+let st=0,V='',PR='',LH='',R={q:'',lv:'',cat:'',amt:'',dd:'',state:'',stt:'',o:'status'};
+const RT=()=>location.hash.replace(/^#\/?/,'');
+const NAV=[['dash','Dashboard'],['results','Scholarships'],['saved','Saved'],['deadlines','Deadlines'],['checklist','Documents'],['tracker','Applications'],['settings','Reminders'],['profile','Profile']];
+const ul=(a,c)=>a.length?`<ul>${a.map(x=>`<li class="${c}">${esc(x)}</li>`).join('')}</ul>`:'';
+const FM=s=>S.done?match(S.p,s):null;
+const tagH=m=>m?`<span class="tag ${m.st}">${SL[m.st]}</span>`:'<span class="tag gray">Complete your profile to check eligibility</span>';
+const dtag=id=>{const d=dl(id);return`<b class="${d.c}">${d.t}</b>`};
+const sel=id=>DB.find(x=>x.id==id);
+const ids=()=>Object.keys(S.saved).filter(i=>sel(i));
+const done=id=>sel(id).doc.filter((_,i)=>S.saved[id].docs[i]).length;
+const bar=(a,b)=>`<div class="bar"><i style="width:${b?Math.round(a/b*100):0}%"></i></div>`;
+const empty=t=>`<div class="card"><p class="mu">${t}</p></div>`;
+const hasD=id=>!!(S.saved[id]&&S.saved[id].deadline);
+const apply=s=>`<a class="b2" target="_blank" rel="noopener" href="${s.apply}">Apply now</a>`;
+const stat=(n,l)=>`<div class="card"><div class="stat">${n}</div>${l}</div>`;
+function card(s){const sd=S.saved[s.id];return`<div class="card">${tagH(FM(s))} <span class="tag gray">Unverified sample</span><h3>${esc(s.n)}</h3><div class="mu sm">${esc(s.pr)} · ${esc(s.cat)}</div><p class="sm">${esc(s.d)}</p><p class="sm"><b>Amount:</b> ${esc(s.ben)}<br><b>Deadline:</b> ${hasD(s.id)?dtag(s.id):'Unknown. Check the official portal.'}<br><b>Documents:</b> ${s.doc.slice(0,3).map(esc).join(', ')}${s.doc.length>3?'…':''}</p><div class="row"><a class="b" href="#/s/${s.id}">View details</a><button class="b2" data-a="${sd?'unsave':'save'}" data-id="${s.id}">${sd?'Saved ✓ Remove':'Save scholarship'}</button>${apply(s)}</div></div>`}
+function detail(id){const s=sel(id);if(!s)return empty('Scholarship not found. <a href="#/results">Back to scholarships</a>');const m=FM(s),sd=S.saved[id];
+ return`<a href="#/results">← All scholarships</a><div class="card"><div>${tagH(m)} <span class="tag gray">Verification: ${esc(s.verification||'UNVERIFIED')} (sample data)</span></div><h1>${esc(s.n)}</h1><p class="mu">${esc(s.pr)} · ${esc(s.cat)}</p><p>${esc(s.d)}</p><dl><dt>Amount</dt><dd>${esc(s.ben)}</dd><dt>Deadline</dt><dd>${hasD(id)?dtag(id):'Unknown. Check the official portal.'}</dd><dt>Last verified</dt><dd>${s.lastV||'Never'}</dd></dl>
+${m?`${m.ok.length?'<h3>Requirements satisfied</h3>'+ul(m.ok,'ok'):''}${m.ms.length?'<h3>Missing or needs verification</h3>'+ul(m.ms,'ms'):''}${m.bd.length?'<h3>Why not eligible</h3>'+ul(m.bd,'bd'):''}`:'<p class="mu">Complete your profile to see how you match.</p>'}
+<h3>Required documents (typical; confirm in guidelines)</h3>${ul(s.doc,'')}<p class="sm mu">The official scholarship authority makes the final eligibility decision.</p>
+<div class="row"><button class="b" data-a="${sd?'unsave':'save'}" data-id="${id}">${sd?'Remove from saved':'Save scholarship'}</button><a class="b2" target="_blank" rel="noopener" href="${s.info}">Official information</a>${apply(s)}</div></div>`}
+const pdl=()=>`<dl><dt>Name</dt><dd>${esc(S.name)}</dd>${F.filter(f=>f.k!='name'&&S.p[f.k]!==undefined&&S.p[f.k]!=='').map(f=>`<dt>${esc(f.l.split('(')[0])}</dt><dd>${esc(f.k=='level'?lv(S.p.level):f.k=='income'?'₹'+Number(S.p.income).toLocaleString('en-IN'):S.p[f.k])}</dd>`).join('')}</dl>`;
+const PG={
+profile:()=>`<h1>Student profile</h1><p class="mu sm">Step ${st+1} of 4: ${TT[st]}. We never ask for Aadhaar, passwords or bank details.</p>${bar(st+1,4)}<div class="card"><div class="grid g2">${vis(st).map(fh).join('')}</div><div class="row">${st?'<button class="b2" data-a="back">Back</button>':''}<button class="b" data-a="next">${st==3?'Save profile':'Next'}</button></div></div>`,
+dash(){const M=DB.map(s=>match(S.p,s).st),c=k=>M.filter(x=>x==k).length,I=ids();let td=0,dn=0;I.forEach(i=>{td+=sel(i).doc.length;dn+=done(i)});
+ const up=I.filter(i=>dl(i).n!==undefined).sort((a,b)=>dl(a).n-dl(b).n),due=up.filter(i=>S.rem!==false&&S.saved[i].remind&&dl(i).n<=S.saved[i].remind),sc=k=>I.filter(i=>S.saved[i].status==k).length;
+ const li=a=>a.map(i=>`<p class="sm">${esc(sel(i).n)}<br>${dtag(i)}</p>`).join('');
+ return`<h1>Hello, ${esc(S.name)}</h1><div class="banner">Scholarship records are unverified samples. Confirm every detail on the official portal.</div><div class="grid g4">${stat(c('FULL')+c('POTENTIAL'),'Matching scholarships')}${stat(c('FULL'),'Fully matched')}${stat(c('POTENTIAL'),'Potential matches')}${stat(I.length,'Saved')}</div>
+<div class="grid g2"><div class="card"><h3>Upcoming deadlines</h3>${up.length?li(up):'<p class="mu sm">None yet. Add closing dates on the Saved page.</p>'}</div><div class="card"><h3>Reminders due</h3>${due.length?li(due):'<p class="mu sm">No reminders due.</p>'}</div><div class="card"><h3>Document progress</h3><p class="sm">${dn} of ${td} documents available</p>${bar(dn,td)}</div><div class="card"><h3>Applications</h3><p class="sm">Not Started ${sc('Not Started')} · In Progress ${sc('In Progress')} · Submitted ${sc('Submitted')}</p></div></div>
+<div class="card"><h3>Profile summary</h3>${pdl()}<div class="row"><a class="b" href="#/profile">Edit profile</a></div></div>`},
+results(){const o=(arr,k,all)=>`<option value="">${all}</option>${arr.map(x=>`<option value="${esc(x[0])}" ${R[k]==x[0]?'selected':''}>${esc(x[1])}</option>`).join('')}`;
+ const M=S.done?DB.map(s=>match(S.p,s).st):[],c=k=>M.filter(x=>x==k).length,u=ids().filter(i=>dl(i).n!==undefined&&dl(i).n<=30).length;
+ return`<h1>Scholarships</h1>${S.done?`<div class="grid g4">${stat(c('FULL')+c('POTENTIAL'),'Total matching')}${stat(c('FULL'),'Fully matched')}${stat(c('POTENTIAL'),'Potential matches')}${stat(u,'Deadlines within 30 days')}</div>`:'<div class="banner"><a href="#/profile">Complete your profile</a> to see which scholarships match you.</div>'}<div class="banner">Records are unverified samples and all-India schemes. Check every detail on the official portal.</div>
+<div class="card"><div class="grid g3"><input id="q" placeholder="Search by name or provider" value="${esc(R.q)}"><select data-r="lv">${o(LV,'lv','All education levels')}</select><select data-r="state">${o(STATES.map(x=>[x,x]),'state','All states')}</select><select data-r="cat">${o([['Central','Central'],['AICTE','AICTE']],'cat','All categories')}</select><select data-r="amt">${o([['y','Amount stated']],'amt','Any amount')}</select><select data-r="dd">${o([['set','Deadline entered'],['none','Deadline unknown']],'dd','Any deadline')}</select><select data-r="stt">${o([['FULL','Fully matched'],['POTENTIAL','Potential match'],['NOT','Not eligible']],'stt','All eligibility')}</select><select data-r="o">${[['status','Sort: best match'],['name','Sort: name A-Z'],['deadline','Sort: deadline']].map(x=>`<option value="${x[0]}" ${R.o==x[0]?'selected':''}>${x[1]}</option>`).join('')}</select></div></div><div id="list"></div>
+<div class="card"><h3>Official portals</h3><div class="row">${PORTALS.map(p=>`<a class="b2" target="_blank" rel="noopener" href="${p[1]}">${p[0]}</a>`).join('')}</div></div>`},
+saved(){const I=ids();return`<h1>Saved scholarships</h1>`+(I.length?I.map(i=>{const s=sel(i),e=S.saved[i];return`<div class="card"><h3>${esc(s.n)}</h3>${tagH(FM(s))} ${dtag(i)}<div class="grid g2" style="margin-top:.8rem"><div><label>Closing date (copy from the official portal)</label><input type="date" data-id="${i}" data-f="deadline" value="${e.deadline||''}"></div><div><label>Remind me</label><select data-id="${i}" data-f="remind">${[[0,'No reminder'],[30,'30 days before'],[15,'15 days before'],[7,'7 days before'],[3,'3 days before'],[1,'1 day before']].map(([v,l])=>`<option value="${v}" ${e.remind==v?'selected':''}>${l}</option>`).join('')}</select></div></div><div class="row"><a class="b" href="#/s/${i}">View details</a>${apply(s)}<button class="b2" data-a="unsave" data-id="${i}">Remove</button></div></div>`}).join(''):empty('Nothing saved yet. Browse <a href="#/results">scholarships</a> and tap Save.'))},
+deadlines(){const I=ids().sort((a,b)=>(dl(a).n??1e9)-(dl(b).n??1e9));return`<h1>Deadline tracker</h1><p class="mu sm">Green: more than 30 days. Yellow: 8 to 30 days. Red: 7 days or fewer. Grey: expired or unknown. Countdowns use dates you enter from the official portal.</p>`+(I.length?I.map(i=>{const d=dl(i);return`<div class="card dl ${d.c}"><h3>${esc(sel(i).n)}</h3><b class="${d.c}">${d.t}</b><div class="row">${apply(sel(i))}<a class="b2" href="#/saved">Edit date</a></div></div>`}).join(''):empty('Save a scholarship to track its deadline.'))},
+checklist(){const I=ids();return`<h1>Document checklist</h1><p class="mu sm">Tick a document when you have it. Unticked documents are pending. Nothing is uploaded.</p>`+(I.length?I.map(i=>{const s=sel(i),e=S.saved[i],n=done(i);return`<div class="card"><h3>${esc(s.n)}</h3><p class="sm">${n} available · ${s.doc.length-n} pending</p>${bar(n,s.doc.length)}${s.doc.map((x,j)=>`<label class="chk"><input type="checkbox" data-id="${i}" data-f="doc" data-i="${j}" ${e.docs[j]?'checked':''}> ${esc(x)} <span class="tag ${e.docs[j]?'FULL':'POTENTIAL'}">${e.docs[j]?'Available':'Pending'}</span></label>`).join('')}<p class="sm mu">Typical documents; confirm in the official guidelines.</p></div>`}).join(''):empty('Save a scholarship to get its document checklist.'))},
+tracker(){const I=ids(),K=['Not Started','In Progress','Submitted'];return`<h1>Application tracker</h1>`+(I.length?`<div class="grid g3">${K.map(k=>`<div class="card"><h3>${k} (${I.filter(i=>S.saved[i].status==k).length})</h3>${I.filter(i=>S.saved[i].status==k).map(i=>`<p class="sm">${esc(sel(i).n)}</p>`).join('')||'<p class="mu sm">None</p>'}</div>`).join('')}</div>`+I.map(i=>`<div class="card"><h3>${esc(sel(i).n)}</h3><label>Status</label><select data-id="${i}" data-f="status">${K.map(k=>`<option ${S.saved[i].status==k?'selected':''}>${k}</option>`).join('')}</select></div>`).join(''):empty('Save a scholarship to track your application.'))},
+settings(){const np=typeof Notification=='undefined'?'not supported':Notification.permission,I=ids().filter(i=>S.saved[i].remind&&S.saved[i].deadline);return`<h1>Settings and reminders</h1><div class="card"><label class="chk"><input type="checkbox" data-a="remtog" ${S.rem!==false?'checked':''}> Enable reminders</label><p class="sm">Browser notifications: <b>${np}</b></p><div class="row"><button class="b" data-a="notify">Allow browser notifications</button></div><p class="sm mu">Notifications appear only while Scholix is open in your browser. There is no background service, so nothing is sent when the browser is closed. In-app reminders show on your Dashboard.</p></div><div class="card"><h3>Upcoming reminders</h3>${I.length?I.map(i=>{const e=S.saved[i],r=new Date(new Date(e.deadline+'T00:00:00')-e.remind*864e5).toLocaleDateString('en-IN');return`<p class="sm">${esc(sel(i).n)}: remind on ${r} (${e.remind} day(s) before ${e.deadline}) <button class="b2" data-a="rmrem" data-id="${i}">Remove</button></p>`}).join(''):'<p class="mu sm">No reminders set. Add a closing date and reminder on the Saved page.</p>'}</div><div class="card"><h3>Your data</h3><div class="row"><a class="b" href="#/profile">Edit profile</a><button class="b2" data-a="clear">Clear my data</button></div></div>`}};
+function fill(){const q=R.q.toLowerCase(),rk={FULL:0,POTENTIAL:1,NOT:2},dd=s=>(S.saved[s.id]&&S.saved[s.id].deadline)||'9';
+ const L=DB.filter(s=>{const m=FM(s);return(!R.lv||s.lv.includes(R.lv))&&(!R.state||!s.states||s.states.includes(R.state))&&(!R.cat||s.cat==R.cat)&&(!R.amt||/₹\s*\d/.test(s.ben))&&(!R.dd||(R.dd=='set')==hasD(s.id))&&(!R.stt||(m&&m.st==R.stt))&&(s.n+s.pr).toLowerCase().includes(q)});
+ L.sort((a,b)=>R.o=='name'?a.n.localeCompare(b.n):R.o=='deadline'?dd(a).localeCompare(dd(b)):S.done?rk[FM(a).st]-rk[FM(b).st]:0);
+ $('#list').innerHTML=L.length?L.map(card).join(''):empty('No scholarships match these filters.')}
+function render(){const r=RT().split('/'),p=r[0];V=p;$('#land').hidden=!!p;$('#app').hidden=!p;if(!p){LH='';return}
+ if(p=='dash'&&!S.done){location.hash='#/profile';return}
+ if(p=='profile'&&PR!='profile')st=0;PR=p;
+ const f=p=='s'?()=>detail(r[1]):PG[p];$('#main').innerHTML=f?f():empty('Page not found. <a href="#/">Home</a>');
+ $('#sb').innerHTML='<div class="brand">Schol<b>ix</b></div>'+NAV.map(([k,l])=>`<a href="#/${k}" class="${p==k||(p=='s'&&k=='results')?'on':''}">${l}</a>`).join('')+'<a href="#/">Home page</a>';
+ if(p=='results')fill();if(location.hash!==LH){LH=location.hash;scrollTo(0,0)}}
+const setK=(t,k,v)=>{const f=F.find(x=>x.k==k);if(f.t=='n'&&v!=='')v=Number(v);if(k=='name')S.name=v;else S.p[k]=v;if(k=='level'){delete S.p.course;delete S.p.year}sv();return k};
+document.addEventListener('click',e=>{if(e.target.closest('#sb a'))$('#sb').classList.remove('open');const b=e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,id=b.dataset.id;
+ if(a=='menu'){$('#sb').classList.toggle('open');return}
+ if(a=='sc'){document.getElementById(b.dataset.t).scrollIntoView({behavior:'smooth'});return}
+ if(a=='start'){location.hash=S.done?'#/results':'#/profile';return}
+ if(a=='next'){if(!valid(st))return;const keep=new Set(F.filter(f=>!f.if||f.if(S.p)).map(f=>f.k));Object.keys(S.p).forEach(k=>{if(!keep.has(k))delete S.p[k]});if(st<3)st++;else{S.done=true;sv();location.hash='#/results';return}sv()}
+ else if(a=='back')st--;
+ else if(a=='save'){S.saved[id]={status:'Not Started',docs:{},deadline:'',remind:3};sv()}
+ else if(a=='unsave'){delete S.saved[id];sv()}
+ else if(a=='rmrem'){S.saved[id].remind=0;sv()}
+ else if(a=='remtog'){S.rem=S.rem===false;sv()}
+ else if(a=='notify'){if(typeof Notification=='undefined'){alert('This browser does not support notifications.');return}Notification.requestPermission().then(()=>render());return}
+ else if(a=='clear'){if(!confirm('Delete your name, profile and saved list from this browser and the server?'))return;fetch('/api/students/'+S.id,{method:'DELETE'}).catch(()=>{});S={id:S.id,name:'',p:{},done:false,saved:{}};MT={};sv();location.hash='#/'}
+ render()});
+document.addEventListener('change',e=>{const t=e.target,f=t.dataset.f;
+ if(t.dataset.k){const k=setK(t,t.dataset.k,t.value);if(['level','marksType'].includes(k))render();return}
+ if(f){const x=S.saved[t.dataset.id];if(f=='doc')x.docs[t.dataset.i]=t.checked;else x[f]=f=='remind'?Number(t.value):t.value;sv();render();return}
+ if(t.dataset.r){R[t.dataset.r]=t.value;fill()}});
+document.addEventListener('input',e=>{const t=e.target;if(t.id=='q'){R.q=t.value;fill()}else if(t.dataset.k&&t.tagName=='INPUT')setK(t,t.dataset.k,t.value)});
+function remind(){if(typeof Notification=='undefined'||Notification.permission!='granted')return;const today=new Date().toDateString();
+ Object.keys(S.saved).forEach(i=>{const e=S.saved[i],d=dl(i);if(S.rem!==false&&e.remind&&d.n!==undefined&&d.n<=e.remind&&e.last!==today&&e.status!='Submitted'){new Notification('Scholarship deadline: '+d.n+' day(s) left',{body:DB.find(s=>s.id==i).n});e.last=today;sv()}})}
+let _t;const J=m=>({method:m,headers:{'Content-Type':'application/json'}});
+function push(){clearTimeout(_t);_t=setTimeout(()=>{if(S.id)fetch('/api/students/'+S.id,{...J('PUT'),body:JSON.stringify({name:S.name,profile:S.p,done:S.done,saved:S.saved})}).catch(()=>{})},600)}
+async function refresh(){try{const r=await fetch('/api/match',{...J('POST'),body:JSON.stringify({profile:S.p})});if(!r.ok)return;const j=await r.json();MT={_k:JSON.stringify(S.p)};j.results.forEach(x=>MT[x.id]=x)}catch{}}
+const _r=render;render=async function(){if(S.done&&MT._k!==JSON.stringify(S.p))await refresh();_r()};
+addEventListener('hashchange',()=>render());
+(async()=>{S.id=S.id||crypto.randomUUID();try{DB=(await(await fetch('/api/scholarships')).json()).scholarships;
+const r=await fetch('/api/students/'+S.id);if(r.ok){const j=await r.json();if(j.found&&!S.done&&j.done){S={...S,name:j.name,p:j.profile,done:true,saved:j.saved};V='dash'}}}catch{}
+sv();render();remind();setInterval(remind,6e4)})();
+</script></body></html>
